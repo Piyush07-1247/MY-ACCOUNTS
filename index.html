@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="summary-page" class="page active">
+            <h1>Summary</h1>
+            <p>Total Fixed Deposit Amount: <span id="total-fd-amount">0</span></p>
+            <p>Available Savings: <span id="available-savings">0</span></p>
+            <p><b>Ideal Available Credit Card Limit: <span id="ideal-available-cc-limit">0</span></b></p>
+            <button onclick="navigateTo('credit-card-page')">Credit Card</button>
+            <button onclick="navigateTo('savings-page')">Savings</button>
+            <button onclick="clearUserData()">Clear Data</button>
+        </div>
+
+        <div id="credit-card-page" class="page">
+            <h1>Credit Card</h1>
+            <button class="back-btn" onclick="navigateTo('summary-page')">Back</button>
+            <div id="credit-card-form" class="form">
+                <h3>Add Credit Card Entry</h3>
+                <label for="cc-name">Name:</label>
+                <input type="text" id="cc-name">
+                <label for="cc-limit">Credit Card Limit:</label>
+                <input type="number" id="cc-limit">
+                <label for="cc-amount-spent">Amount Spent:</label>
+                <input type="number" id="cc-amount-spent">
+                <label for="cc-amount-bill">Amount Bill:</label>
+                <input type="number" id="cc-amount-bill">
+                <button onclick="addCreditCardEntry()">Add</button>
+            </div>
+            <div id="credit-card-entries">
+                <!-- Credit Card Entries will be injected here by JavaScript -->
+            </div>
+        </div>
+
+        <div id="savings-page" class="page">
+            <h1>Savings</h1>
+            <button class="back-btn" onclick="navigateTo('summary-page')">Back</button>
+            <div id="savings-form" class="form">
+                <h3>Add Savings Entry</h3>
+                <label for="savings-name">Name:</label>
+                <input type="text" id="savings-name">
+                <label for="savings-amount">Savings Amount:</label>
+                <input type="number" id="savings-amount">
+                <label for="fd-amount">Fixed Deposit:</label>
+                <input type="number" id="fd-amount">
+                <label for="fd-maturity-date">Maturity Date:</label>
+                <input type="date" id="fd-maturity-date">
+                <button onclick="addSavingsEntry()">Add</button>
+            </div>
+            <div id="savings-entries">
+                <!-- Savings Entries will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
